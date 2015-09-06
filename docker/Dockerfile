@@ -31,8 +31,8 @@ ADD ./supervisord.conf /etc/supervisord.conf
 
 ADD https://download.moodle.org/moodle/moodle-latest.tgz /var/www/moodle-latest.tgz
 RUN cd /var/www; tar zxvf moodle-latest.tgz; mv /var/www/moodle /var/www/html
-ADD ../mod/* /var/www/html/moodle/mod/
-ADD ../theme/* /var/www/html/moodle/theme/
+ADD ./mod/openmeetings /var/www/html/moodle/mod/openmeetings
+ADD ./theme/klass /var/www/html/moodle/theme/klass
 RUN chown -R www-data:www-data /var/www/html/moodle
 RUN mkdir /var/moodledata
 RUN chown -R www-data:www-data /var/moodledata; chmod 777 /var/moodledata
